@@ -3,6 +3,7 @@ class SupportTicketsController < ApplicationController
 
   def create
     ticket = SupportTicket.create!(ticket_params)
+    render :success
   rescue
     render :error, status: 400
   end
