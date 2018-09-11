@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_175650) do
+ActiveRecord::Schema.define(version: 2018_09_11_180323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,16 @@ ActiveRecord::Schema.define(version: 2018_09_11_175650) do
     t.index ["sku"], name: "index_brushes_on_sku", unique: true
   end
 
+  create_table "support_tickets", force: :cascade do |t|
+    t.bigint "brush_id", null: false
+    t.integer "material", default: 0, null: false
+    t.string "feedback", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brush_id"], name: "index_support_tickets_on_brush_id"
+  end
+
+  add_foreign_key "support_tickets", "brushes"
 end
