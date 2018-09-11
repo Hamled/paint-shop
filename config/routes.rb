@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
+
+  # Static pages
+  scope controller: 'static_pages', as: 'static' do
+    get :home
+  end
+
   resources :support_tickets, only: [:create]
 
   namespace :admin do
