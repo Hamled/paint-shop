@@ -1,0 +1,25 @@
+<h1>Support Tickets</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Submitted</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Brush</th>
+      <th>Material</th>
+      <th>Feedback</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.created_at.to_s(:medium) %></td>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.email %></td>
+        <td><%= ticket.brush.name %></td>
+        <td><%= ticket.material %></td>
+        <td><%= ticket.feedback %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
