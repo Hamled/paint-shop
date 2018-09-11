@@ -1,4 +1,5 @@
 class SupportTicketsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :create
   before_action :find_brush, only: [:create]
 
   def create
