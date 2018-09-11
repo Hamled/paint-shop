@@ -24,18 +24,22 @@ describe SupportTicketsController do
     end
 
     it "should respond with Bad Request w/o a valid brush" do
-      post support_tickets_path, params: invalid_brush
+      expect {
+        post support_tickets_path, params: invalid_brush
 
-      must_respond_with :bad_request
+        must_respond_with :bad_request
+      }.wont_change(-> { SupportTicket.count })
     end
 
     it "should respond with Bad Request w/o required fields" do
       required = %i(feedback name email)
 
       required.each do |field|
-        post support_tickets_path, params: valid_data.except(field)
+        expect {
+          post support_tickets_path, params: valid_data.except(field)
 
-        must_respond_with :bad_request
+          must_respond_with :bad_request
+        }.wont_change(-> { SupportTicket.count })
       end
     end
 
