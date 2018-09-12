@@ -1,19 +1,19 @@
 <h1>Support Tickets</h1>
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
-      <th>Submitted</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Brush</th>
-      <th>Material</th>
-      <th>Feedback</th>
+      <th scope="col">Submitted</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Brush</th>
+      <th scope="col">Material</th>
+      <th scope="col">Feedback</th>
     </tr>
   </thead>
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.created_at.to_s(:medium) %></td>
+        <th scope="row"><%= ticket.created_at.to_s(:medium) %></th>
         <td><%= ticket.name %></td>
         <td><%= ticket.email %></td>
         <td><%= ticket.brush.name %></td>
