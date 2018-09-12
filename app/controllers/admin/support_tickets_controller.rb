@@ -1,5 +1,5 @@
 class Admin::SupportTicketsController < Admin::ApplicationController
   def index
-    @tickets = SupportTicket.all
+    @tickets = SupportTicket.order(created_at: :desc)
   end
 end
