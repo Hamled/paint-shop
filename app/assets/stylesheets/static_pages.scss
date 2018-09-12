@@ -1,3 +1,54 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Home page
+.splash {
+  height: 100vh;
+  width: 100vw;
+
+  background-size: cover;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  margin: 20% 10%;
+  width: 1%;
+
+  font-family: 'Comfortaa';
+  font-weight: bolder;
+}
+
+// Phone screen (tested for iPhone 6 Plus)
+@media screen and (max-width: 899px) {
+  .splash {
+    background-image: url(image-path('splash-bg_1080-portrait.jpg'));
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .splash {
+    background-image: url(image-path('splash-bg_1080-landscape.jpg'));
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .splash {
+    background-image: url(image-path('splash-bg_2160-landscape.jpg'));
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .title {
+    font-size: 5rem;
+  }
+}
