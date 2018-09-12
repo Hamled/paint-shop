@@ -3,10 +3,12 @@ class SupportTicketsController < ApplicationController
   before_action :find_brush, only: [:create]
 
   def create
-    ticket = SupportTicket.create!(ticket_params)
-    render :success
-  rescue
-    render :error, status: 400
+    @ticket = SupportTicket.create(ticket_params)
+    if @ticket.persisted?
+      render :success
+    else
+      render :error, status: 400
+    end
   end
 
   private

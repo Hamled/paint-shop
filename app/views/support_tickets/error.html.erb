@@ -1,2 +1,13 @@
-<h1>Warning! Your feedback was not submitted!</h1>
-<p>There was an error processing your feedback form. Please correct any issues and re-submit so that our support staff will receive it.</p>
+<ul>
+  <% if !@ticket.nil? %>
+    <% @ticket.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% elsif @brush.nil? %>
+    <li>Invalid brush SKU: <%= params[:brush_sku].inspect %></li>
+  <% else %>
+    <li>No support ticket found! This is a bug for Ada to fix, please let us know.</li>
+  <% end %>
+</ul>
+
+<a class="btn btn-primary" href="javascript:void(0)" onclick="window.history.back();" role="button">Back to feedback form</a>
